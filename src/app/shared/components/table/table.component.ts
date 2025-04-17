@@ -20,8 +20,15 @@ export class TableComponent<T extends TableRow> {
   @Output() onDelete = new EventEmitter<T>();
 
   itemsPerPage = 5;
+  isLoading = true;
 
   constructor() {}
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
+  }
 
   get totalResults() {
     return Math.min(this.data.length, this.itemsPerPage);

@@ -147,3 +147,20 @@
 .dropdown-item:hover {
   background-color: #f0f0f0;
 }
+
+.skeleton-cell {
+  height: 20px;
+  background: linear-gradient(90deg, #eee, #ddd, #eee);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
