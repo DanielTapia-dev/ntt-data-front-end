@@ -1,27 +1,43 @@
-# NttDataFrontEnd
+# 🧾 NttDataFrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+Este proyecto fue desarrollado con **Angular 15.2.11** y tiene como objetivo ofrecer una interfaz moderna, responsive y eficiente, utilizando buenas prácticas de desarrollo frontend. Además, se ha implementado un sistema de pruebas unitarias con **Jest** para asegurar la calidad del código.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 ¿Cómo iniciar el proyecto?
 
-## Code scaffolding
+Primero, asegúrate de tener instalado Node.js y Angular CLI. Luego, ejecuta:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install
+```
 
-## Build
+Y para iniciar el servidor de desarrollo:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng serve
+```
 
-## Running unit tests
+Abrir el navegador en [http://localhost:4200](http://localhost:4200) para ver la app.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🧪 Pruebas unitarias con Jest
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Este proyecto usa **Jest** como framework de pruebas unitarias.
 
-## Further help
+Para correr las pruebas:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm run test
+```
+
+---
+
+## 📦 Tecnologías usadas
+
+- **Angular 15.2.11**
+- **TypeScript 4.8**
+- **Jest** para pruebas unitarias
+- **CSS** para los estilos
+- **HTML** con diseño responsive
