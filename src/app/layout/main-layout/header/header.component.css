@@ -1,0 +1,26 @@
+.header {
+  height: 60px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header .header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .header-content img {
+  height: 24px;
+}
+
+.header .header-content .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--accent-color);
+  letter-spacing: 1px;
+  font-family: var(--font-family);
+}

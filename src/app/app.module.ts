@@ -7,6 +7,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
 import { ConfirmModalComponent } from './shared/components/confirm-modal/confirm-modal.component';
 import { SearchBarComponent } from './shared/components/search-bar/search-bar.component';
 import { TableComponent } from './shared/components/table/table.component';
+import { MainLayoutModule } from './layout/main-layout/main-layout.module';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,10 @@ import { TableComponent } from './shared/components/table/table.component';
     AlertComponent,
     ConfirmModalComponent,
     SearchBarComponent,
-    TableComponent
+    TableComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, MainLayoutModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
