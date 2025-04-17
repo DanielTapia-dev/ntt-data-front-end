@@ -48,7 +48,7 @@ export class ProductsComponent implements OnInit {
   deleteProduct(productId: string): void {
     this.productsService.delete(productId).subscribe({
       next: () => {
-        this.alertService.success(GlobalMessages.confirmDeleteProduct);
+        this.alertService.warning(GlobalMessages.confirmDeleteProduct);
         this.loadProducts();
       },
       error: (error) => {
@@ -99,6 +99,7 @@ export class ProductsComponent implements OnInit {
 
   cancelDelete() {
     this.showConfirmModal = false;
+    this.alertService.info(`El producto no fue eliminado`);
   }
 
   isDate(value: unknown): boolean {

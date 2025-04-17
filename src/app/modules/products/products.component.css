@@ -59,7 +59,6 @@
   }
 
   .products-module .products-header app-search-bar {
-    width: 100% !important;
     order: 2;
   }
 }
