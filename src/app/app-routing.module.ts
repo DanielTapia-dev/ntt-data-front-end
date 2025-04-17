@@ -14,6 +14,11 @@ const routes: Routes = [
             (m) => m.ProductsModule
           ),
       },
+      {
+        path: '',
+        redirectTo: 'products',
+        pathMatch: 'full',
+      },
     ],
   },
 ];

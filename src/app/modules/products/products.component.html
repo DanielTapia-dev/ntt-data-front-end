@@ -1,1 +1,25 @@
-<p>products works!</p>
+<section class="products-module">
+  <div class="products-header">
+    <app-search-bar (search)="applyFilter($event)"></app-search-bar>
+    <button class="primary" (click)="createProduct()">Agregar</button>
+  </div>
+
+  <div class="page-body">
+    <app-table
+      [tableColumns]="tableColumns"
+      [data]="filteredProducts"
+      (onEdit)="editProduct($event)"
+      (onDelete)="openDeleteModal($event)"
+    >
+    </app-table>
+  </div>
+</section>
+
+<app-confirm-modal
+  *ngIf="showConfirmModal"
+  [message]="deleteMessage"
+  [confirmText]="'Confirmar'"
+  [cancelText]="'Cancelar'"
+  (confirm)="confirmDelete()"
+  (cancel)="cancelDelete()"
+></app-confirm-modal>

@@ -1,1 +1,78 @@
-<p>table works!</p>
+<div class="dynamic-table">
+  <div class="table-scroll-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let col of tableColumns">
+            <div class="th-content">
+              {{ col.header }}
+              <img
+                *ngIf="col.hasIcon"
+                src="../../../../assets/img/info.png"
+                alt="Más"
+                class="icon-info"
+              />
+            </div>
+          </th>
+          <th class="actions-header"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data | slice : 0 : itemsPerPage">
+          <td *ngFor="let col of tableColumns">
+            <ng-container *ngIf="col.type == 'Date'; else checkLogo">
+              {{ item[col.field] | date : "dd/MM/yyyy" }}
+            </ng-container>
+
+            <ng-template #checkLogo>
+              <ng-container *ngIf="col.type == 'img'; else normal">
+                <img
+                  [src]="item[col.field]"
+                  alt="Logo"
+                  class="logo-img"
+                  (error)="setDefaultImage($event)"
+                />
+              </ng-container>
+            </ng-template>
+
+            <ng-template #normal>
+              {{ item[col.field] }}
+            </ng-template>
+          </td>
+          <td class="actions-cell">
+            <div class="dropdown-wrapper" style="position: relative">
+              <button
+                class="icon-button"
+                title="Más acciones"
+                (click)="toggleMenu(item)"
+              >
+                <img src="../../../../assets/img/more.png" alt="Más" />
+              </button>
+
+              <div class="dropdown-menu" *ngIf="item.showMenu">
+                <button class="dropdown-item" (click)="edit(item)">
+                  Editar
+                </button>
+                <button class="dropdown-item" (click)="delete(item)">
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-footer">
+    <span>{{ totalResults }} Resultados</span>
+
+    <div class="rows-per-page">
+      <select id="rowsPerPage" [(ngModel)]="itemsPerPage">
+        <option *ngFor="let option of [5, 10, 20, 50]" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

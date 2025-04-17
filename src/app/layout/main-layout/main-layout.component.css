@@ -1,0 +1,13 @@
+.main-layout {
+  display: flex;
+  height: calc(100vh - 60px);
+  background-color: var(--auxiliary-color);
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  margin-top: 5rem;
+  margin-inline: 10rem;
+}

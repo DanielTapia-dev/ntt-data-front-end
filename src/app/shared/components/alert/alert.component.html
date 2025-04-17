@@ -1,1 +1,3 @@
-<p>alert works!</p>
+<div *ngIf="visible" class="alert" [ngClass]="message?.type">
+  {{ message?.text }}
+</div>

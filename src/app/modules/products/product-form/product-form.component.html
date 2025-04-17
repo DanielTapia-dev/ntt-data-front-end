@@ -1,1 +1,115 @@
-<p>product-form works!</p>
+<section class="form-container">
+  <button
+    type="button"
+    class="icon-button back-button"
+    (click)="goBack()"
+    aria-label="Volver"
+  >
+    <img src="../../../../assets/img/back.png" alt="" />
+  </button>
+
+  <h2>Formulario de Registro</h2>
+
+  <hr class="divider" />
+
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="form-row">
+      <div class="form-group">
+        <label>ID</label>
+        <input type="text" formControlName="id" [readonly]="isEditMode" />
+        <div class="error" *ngIf="f['id'].touched && f['id'].invalid">
+          <small *ngIf="f['id'].errors?.['required']"
+            >Este campo es requerido!</small
+          >
+          <small
+            *ngIf="f['id'].errors?.['minlength'] || f['id'].errors?.['maxlength']"
+            >ID inválido debe tener mínimo 3 caracteres y máximo 10!</small
+          >
+          <small *ngIf="f['id'].errors?.['idTaken']"
+            >Este ID ya está en uso</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" formControlName="name" />
+        <div class="error" *ngIf="f['name'].touched && f['name'].invalid">
+          <small *ngIf="f['name'].errors?.['required']"
+            >Este campo es requerido!</small
+          >
+          <small
+            *ngIf="f['name'].errors?.['minlength'] || f['name'].errors?.['maxlength']"
+            >Debe tener mínimo 6 caracteres y máximo 100!</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Descripción</label>
+        <input type="text" formControlName="description" />
+        <div
+          class="error"
+          *ngIf="f['description'].touched && f['description'].invalid"
+        >
+          <small *ngIf="f['description'].errors?.['required']"
+            >Este campo es requerido!</small
+          >
+          <small
+            *ngIf="f['description'].errors?.['minlength'] || f['description'].errors?.['maxlength']"
+            >Debe tener mínimo 10 caracteres y máximo 200!</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Logo</label>
+        <input type="text" formControlName="logo" />
+        <div class="error" *ngIf="f['logo'].touched && f['logo'].invalid">
+          <small *ngIf="f['logo'].errors?.['required']"
+            >Este campo es requerido!</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Fecha Liberación</label>
+        <input type="date" formControlName="date_release" />
+        <div
+          class="error"
+          *ngIf="f['date_release'].touched && f['date_release'].invalid"
+        >
+          <small *ngIf="f['date_release'].errors?.['required']"
+            >Este campo es requerido!</small
+          >
+          <small *ngIf="f['date_release'].errors?.['invalidReleaseDate']"
+            >Debe ser mayor o igual a hoy</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fecha Revisión</label>
+        <input type="date" formControlName="date_revision" [disabled]="true" />
+      </div>
+    </div>
+
+    <div class="form-buttons">
+      <button
+        type="button"
+        class="secondary"
+        (click)="resetForm()"
+        [disabled]="isEditMode"
+      >
+        Reiniciar
+      </button>
+      <button type="submit" class="primary" [disabled]="form.invalid">
+        Enviar
+      </button>
+    </div>
+  </form>
+</section>
