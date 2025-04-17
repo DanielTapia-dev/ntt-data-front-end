@@ -7,6 +7,7 @@ import { of, throwError } from 'rxjs';
 import { Product } from '@shared/interfaces/product';
 import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
+import { SharedModule } from '@shared/shared.module';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -35,6 +36,8 @@ describe('ProductsComponent', () => {
     mockAlertService = {
       success: jest.fn(),
       error: jest.fn(),
+      info: jest.fn(),
+      warning: jest.fn(),
     };
 
     mockRouter = {
@@ -43,7 +46,7 @@ describe('ProductsComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ProductsComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, SharedModule],
       providers: [
         { provide: ProductsService, useValue: mockProductService },
         { provide: AlertService, useValue: mockAlertService },
@@ -68,7 +71,7 @@ describe('ProductsComponent', () => {
   it('should call deleteProduct and reload on success', () => {
     component.deleteProduct('1');
     expect(mockProductService.delete).toHaveBeenCalledWith('1');
-    expect(mockAlertService.success).toHaveBeenCalled();
+    expect(mockAlertService.warning).toHaveBeenCalled();
     expect(mockProductService.getAll).toHaveBeenCalledTimes(2);
   });
 
