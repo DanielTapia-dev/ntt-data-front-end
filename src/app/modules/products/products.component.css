@@ -45,3 +45,21 @@
   min-width: 500px;
   max-width: 600px;
 }
+
+@media screen and (max-width: 768px) {
+  .products-module .products-header {
+    flex-direction: column;
+    align-items: stretch;
+    align-items: stretch;
+  }
+
+  .products-module .products-header button.primary {
+    width: 100%;
+    order: 1;
+  }
+
+  .products-module .products-header app-search-bar {
+    width: 100% !important;
+    order: 2;
+  }
+}

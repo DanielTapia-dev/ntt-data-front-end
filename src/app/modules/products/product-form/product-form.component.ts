@@ -132,9 +132,17 @@ export class ProductFormComponent implements OnInit {
         }
       );
     } else {
-      this.productService.create(product).subscribe(() => {
-        this.router.navigate(['/products']);
-      });
+      this.productService.create(product).subscribe(
+        () => {
+          this.router.navigate(['/products']);
+          this.alertService.success(
+            'Se ha creado el nuevo producto: ' + product.id
+          );
+        },
+        (err) => {
+          this.alertService.error(GlobalMessages.errorOccurred);
+        }
+      );
     }
   }
 

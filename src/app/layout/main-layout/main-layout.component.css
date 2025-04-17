@@ -11,3 +11,10 @@
   margin-top: 5rem;
   margin-inline: 10rem;
 }
+
+@media screen and (max-width: 900px) {
+  .main-content {
+    margin-inline: 1rem;
+    padding: 1rem;
+  }
+}
