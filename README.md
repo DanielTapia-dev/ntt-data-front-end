@@ -12,7 +12,13 @@ Primero, asegúrate de tener instalado Node.js y Angular CLI. Luego, ejecuta:
 npm install
 ```
 
-Y para iniciar el servidor de desarrollo:
+Antes de iniciar el proyecto de FrontEnd tiene que estar corriendo el proyecto repo-interview-main, se debe correr el proyecto con el comando:
+
+```bash
+npm run start:dev
+```
+
+Para iniciar el servidor de desarrollo:
 
 ```bash
 ng serve
@@ -30,6 +36,12 @@ Para correr las pruebas:
 
 ```bash
 npm run test
+```
+
+Para correr las pruebas y revisar el porcentaje de coverage:
+
+```bash
+npm run test:coverage
 ```
 
 ---
